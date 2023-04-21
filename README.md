@@ -13,11 +13,24 @@
 
 ## Providers
 
-No provider.
+| Name | Version |
+|------|---------|
+| archive | n/a |
+| aws | n/a |
+| random | n/a |
 
 ## Inputs
 
-No input.
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| account\_name | Account or environment name. | `string` | n/a | yes |
+| alarm\_period | (Optional) The period in seconds over which the specified statistic is applied. | `number` | `300` | no |
+| app\_endpoint\_name | Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore. | `string` | n/a | yes |
+| app\_endpoint\_url | Application or endpoint URL (e.g. https://www.dnx.solutions) | `string` | n/a | yes |
+| runtime\_version | Runtime version to use for the canary. Versions change often so consult the Amazon CloudWatch documentation for the latest valid versions. | `string` | `"syn-nodejs-puppeteer-3.9"` | no |
+| s3\_bucket | Full bucket name which is used if your canary script is located in S3. The bucket must already exist. | `string` | n/a | yes |
+| schedule\_expression | Rate expression or cron expression that defines how often the canary is to run. For rate expression, the syntax is rate(number unit). unit can be minute, minutes, or hour. For cron expression, the syntax is cron(expression). | `string` | `"rate(30 minutes)"` | no |
+| sns\_topic\_arn | SNS topic ARN to send a notification when the synthetic alarm is triggered. | `string` | n/a | yes |
 
 ## Outputs
 
