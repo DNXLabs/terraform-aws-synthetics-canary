@@ -30,7 +30,7 @@ data "aws_iam_policy_document" "synthetics_monitor" {
   statement {
     sid       = ""
     effect    = "Allow"
-    resources = ["arn:aws:s3:::${var.s3_bucket}/canary/${data.aws_region.current.name}/${var.account_name}-${var.app_endpoint_name}/*"] #todo
+    resources = ["arn:aws:s3:::${var.s3_bucket}/canary/${data.aws_region.current.name}/${var.account_name}-${var.app_endpoint_name}/*"]
     actions = ["s3:PutObject",
     "s3:GetObject"]
   }
